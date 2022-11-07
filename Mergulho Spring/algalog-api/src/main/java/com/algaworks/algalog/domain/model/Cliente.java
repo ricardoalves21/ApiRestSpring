@@ -20,8 +20,10 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column
 	private String nome;
 		
+	@Column
 	private String email;
 	
 	@Column(name = "fone")
