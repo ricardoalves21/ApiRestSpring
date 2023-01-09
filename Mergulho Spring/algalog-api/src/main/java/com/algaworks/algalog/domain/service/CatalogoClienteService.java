@@ -34,5 +34,3 @@ public class CatalogoClienteService {
 	}
 
 }
-
-// parei no vídeo 2.7 no minuto 5:20
