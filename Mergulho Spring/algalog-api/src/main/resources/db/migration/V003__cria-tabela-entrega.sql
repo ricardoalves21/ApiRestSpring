@@ -3,7 +3,7 @@ create table entrega(
 	id bigint not null auto_increment,
     cliente_id bigint not null,
     taxa decimal(10,2) not null,
-    status varchar(20) not null,
+    statusEntrega varchar(20) not null,
     data_pedido datetime not null,
     data_finalizacao datetime,
     
