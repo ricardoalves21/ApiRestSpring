@@ -21,11 +21,17 @@ import com.algaworks.algalog.domain.model.Cliente;
 import com.algaworks.algalog.domain.repository.ClienteRepository;
 import com.algaworks.algalog.domain.service.CatalogoClienteService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @RestController
 @RequestMapping("/clientes")
+@Tag(name = "AlgaWorks", description = "APIs de Integração AlgaWoks")
 public class ClienteController {
 	
 	private ClienteRepository clienteRepository;
@@ -46,6 +52,10 @@ public class ClienteController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
+	@Operation(summary = "Insere um novo cliente")
+	@ApiResponse(responseCode = "201", description = "Sucesso", content = {
+			@Content(mediaType = "application/json", schema = @Schema(implementation = Cliente.class))
+	})
 	public Cliente adicionar(@Valid @RequestBody Cliente cliente) {
 		return catalogoClienteService.salvar(cliente);
 	}
