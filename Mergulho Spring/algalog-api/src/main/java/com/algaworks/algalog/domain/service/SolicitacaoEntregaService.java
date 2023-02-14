@@ -5,8 +5,11 @@ import java.time.LocalDateTime;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.algaworks.algalog.domain.exception.NegocioException;
+import com.algaworks.algalog.domain.model.Cliente;
 import com.algaworks.algalog.domain.model.Entrega;
 import com.algaworks.algalog.domain.model.StatusEntrega;
+import com.algaworks.algalog.domain.repository.ClienteRepository;
 import com.algaworks.algalog.domain.repository.EntregaRepository;
 
 import lombok.AllArgsConstructor;
@@ -16,10 +19,13 @@ import lombok.AllArgsConstructor;
 public class SolicitacaoEntregaService {
 	
 	private EntregaRepository entregaRepository;
+	private CatalogoClienteService catalogoClienteService;
 	
 	@Transactional
 	public Entrega solicitar(Entrega entrega) {
 		
+		Cliente cliente = catalogoClienteService.buscar(entrega.getCliente().getId());
+		entrega.setCliente(cliente);
 		entrega.setStatusEntrega(StatusEntrega.PENDENTE);
 		entrega.setDataPedido(LocalDateTime.now());		
 		
