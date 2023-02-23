@@ -15,4 +15,4 @@ public class ModelMapperConfig {
 }
 
 
-// parei no vídeo 3.5 no minuto 7:15
+// parei no vídeo 3.5 no minuto 21:00
