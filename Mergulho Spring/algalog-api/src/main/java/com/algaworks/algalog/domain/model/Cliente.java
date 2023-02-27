@@ -23,7 +23,6 @@ import lombok.Setter;
 @Entity
 public class Cliente {
 	
-	@NotNull(groups = ValidationGroups.ClienteId.class)  //O groups serve para fazer validações de um campo
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
