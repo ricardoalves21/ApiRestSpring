@@ -21,4 +21,4 @@ public class BuscaEntregaService {
 	}
 }
 
-// Parei no vídeo 3.6 no minuto 15:42
+// Parei no vídeo 3.6 no minuto 25:00
