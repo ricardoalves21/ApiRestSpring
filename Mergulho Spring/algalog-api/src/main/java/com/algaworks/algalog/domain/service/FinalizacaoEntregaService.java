@@ -22,14 +22,9 @@ public class FinalizacaoEntregaService {
 	public void finalizar(Long entregaId) {
 		Entrega entrega = buscaEntregaService.buscar(entregaId);
 		
-		if (!entrega.getStatusEntrega().equals(StatusEntrega.PENDENTE)) {
-			throw new NegocioException("Entrega não pode ser finalizada");
-		}
-		
-		entrega.setStatusEntrega(StatusEntrega.FINALIZADA);
+		entrega.finalizar();
 		
 		entregaRepository.save(entrega);
 	}
 
 }
-// Parei no vídeo 3.7 no minuto 4:50
